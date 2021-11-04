@@ -1,4 +1,4 @@
-import { blue, red, grey } from '@material-ui/core/colors'
+import { blue, red } from '@material-ui/core/colors'
 import { createTheme, responsiveFontSizes } from '@material-ui/core/styles'
 
 // Creates a theme
@@ -7,29 +7,37 @@ const theme = responsiveFontSizes(
   createTheme({
     palette: {
       primary: {
-        main: blue[500],
+        main: '#78b7cb',
       },
       secondary: {
         main: blue[700],
       },
       error: {
-        main: red.A400,
+        main: red[300],
       },
       background: {
-        default: grey[100],
+        default: '#254e65',
+        paper: '#152d45',
+      },
+      text: {
+        primary: '#3a7fb7',
+        secondary: '#254c6f',
       },
     },
-    typography: {
-      fontSize: 17,
-      h1: {
-        fontSize: '2.0rem',
-        lineHeight: 2.0,
-        color: '#333333',
+    overrides: {
+      MuiInput: {
+        root: {
+          backgroundColor: '#3a4651',
+          borderRadius: '10px',
+        },
+        input: {
+          margin: '10px',
+        },
       },
-      subtitle1: {
-        fontSize: '1.0rem',
-        lineHeight: 1.5,
-        color: '#666666',
+      MuiPaper: {
+        root: {
+          border: '1px solid #284359',
+        },
       },
     },
   })
