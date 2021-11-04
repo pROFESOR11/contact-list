@@ -60,5 +60,13 @@
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["./src/pages/api/*"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    }
+  ]
 }
