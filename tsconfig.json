@@ -24,7 +24,9 @@
       "@styles/*": ["./src/styles/*"],
       "@components/*": ["./src/components/*"],
       "@lib/*": ["./src/lib/*"],
-      "@customTypes/*": ["./src/types/*"]
+      "@customTypes/*": ["./src/types/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "exclude": ["node_modules", ".next", "out"],
