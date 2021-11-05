@@ -8,7 +8,8 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
+    "test-all": "yarn lint && yarn type-check && yarn test",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -58,7 +59,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.2.3",
+    "husky": "^7.0.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.4",
     "jest-watch-typeahead": "^0.6.1",
