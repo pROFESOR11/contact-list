@@ -156,7 +156,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <FormHelperText error={!!formError}>{formError || ' '}</FormHelperText>
           </Box>
           <Box display="flex" flexDirection="row" flexGrow={1} mt={2} justifyContent="center">
-            <Button type="submit" variant="contained" color="primary" disabled={!formik.dirty || formik.isSubmitting}>
+            <Button
+              data-testid="submit"
+              type="submit"
+              variant="contained"
+              color="primary"
+              disabled={!formik.dirty || formik.isSubmitting}
+            >
               Submit
             </Button>
           </Box>

@@ -22,7 +22,8 @@ const FormChipInput: React.FC<FieldHookConfig<Tag[]> & { label: string; options?
   return (
     <Autocomplete
       multiple
-      id="tags-outlined"
+      id="tags"
+      data-testid="form-tags"
       limitTags={3}
       options={options as (Tag | { inputValue: string; label: string })[]}
       defaultValue={[]}
