@@ -1,5 +1,6 @@
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/core/styles'
+import { ConfirmProvider } from 'material-ui-confirm'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import * as React from 'react'
@@ -22,8 +23,14 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
+        <ConfirmProvider
+          defaultOptions={{
+            confirmationButtonProps: { autoFocus: true },
+          }}
+        >
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ConfirmProvider>
       </ThemeProvider>
     </>
   )
