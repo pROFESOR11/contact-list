@@ -13,8 +13,10 @@ export const FormTextInput: React.FC<FieldHookConfig<string> & TextFieldProps> =
       // fix it by passing a space character to the helperText prop
       helperText={errorText || ' '}
       error={!!errorText}
+      data-testid={field.name}
       {...props}
       {...field}
+      id={props.name}
       autoComplete="off"
       variant="standard"
       InputLabelProps={{
