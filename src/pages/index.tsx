@@ -28,7 +28,10 @@ export default Home
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const contacts = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts`).then((res) => res.json())
+    const contacts = await fetch(
+      (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000') +
+        `/api/contacts`
+    ).then((res) => res.json())
 
     return {
       props: {
