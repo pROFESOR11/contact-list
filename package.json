@@ -9,6 +9,8 @@
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "prepare": "husky install"
   },
   "husky": {
