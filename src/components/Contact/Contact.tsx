@@ -87,6 +87,7 @@ const Contact: React.FC<ContactProps> = ({ contact, activateEditMode, deleteCont
         </Box>
         <Box alignSelf="flex-start">
           <DropdownMenu
+            contactId={contact.id}
             actions={[
               {
                 icon: EditIcon,

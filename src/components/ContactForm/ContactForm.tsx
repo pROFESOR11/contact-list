@@ -123,7 +123,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <div>
       <FormikProvider value={formik}>
-        <Form>
+        <Form id="contactForm">
           <div className={classes.formContainer}>
             <Grid container spacing={2}>
               <Grid item xs={12}>

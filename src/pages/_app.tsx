@@ -7,6 +7,10 @@ import * as React from 'react'
 
 import theme from '@styles/theme'
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  require('../../mocks')
+}
+
 function App({ Component, pageProps }: AppProps): JSX.Element {
   React.useEffect(() => {
     // Remove the server-side injected CSS.

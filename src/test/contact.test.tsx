@@ -5,9 +5,10 @@ import React from 'react'
 import Contact from '@components/Contact'
 import { ContactWithTags } from '@customTypes/ContactWithTags'
 import { getFirstLettersOfFullName } from '@helpers/misc'
-import '@testing-library/jest-dom/extend-expect'
 
 import { render } from './testUtils'
+
+import '@testing-library/jest-dom/extend-expect'
 
 describe('</Contact >', () => {
   let activateEditMode: jest.Mock<any, any>,

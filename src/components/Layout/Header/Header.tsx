@@ -23,17 +23,19 @@ function Header(): JSX.Element {
   const classes = useStyles()
 
   return (
-    <HideOnScroll>
-      <AppBar data-test="header" elevation={0} className={classes.appbar}>
-        <Toolbar className={classes.toolbar} disableGutters>
-          <Link href="/">
-            <Typography variant="h5" color="textPrimary" className={classes.link}>
-              Contact List
-            </Typography>
-          </Link>
-        </Toolbar>
-      </AppBar>
-    </HideOnScroll>
+    <nav id="nav">
+      <HideOnScroll>
+        <AppBar data-test="header" elevation={0} className={classes.appbar}>
+          <Toolbar className={classes.toolbar} disableGutters>
+            <Link href="/">
+              <Typography variant="h5" color="textPrimary" className={classes.link}>
+                Contact List
+              </Typography>
+            </Link>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+    </nav>
   )
 }
 

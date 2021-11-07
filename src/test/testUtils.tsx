@@ -1,8 +1,8 @@
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/core/styles'
-import { render } from '@testing-library/react'
+import { render, RenderOptions } from '@testing-library/react'
 import { ConfirmProvider } from 'material-ui-confirm'
-import * as React from 'react'
+import React from 'react'
 
 import theme from '@styles/theme'
 
@@ -22,7 +22,8 @@ const Providers: React.FC = ({ children }) => {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const customRender = (ui, options = {}) => render(ui, { wrapper: Providers, ...options })
+const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
+  render(ui, { wrapper: Providers, ...options })
 
 // re-export everything
 // eslint-disable-next-line import/export
