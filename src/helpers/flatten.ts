@@ -17,6 +17,9 @@ export const flattenContact = (contact: ContactWithTags): string[] => {
 export const addFlattenedSearchArray = (
   contacts: ContactWithTags[]
 ): (ContactWithTags & { searchArray: string[] })[] => {
+  if (!contacts || !contacts.length) {
+    return []
+  }
   return contacts.map((contact) => ({
     ...contact,
     searchArray: flattenContact(contact),

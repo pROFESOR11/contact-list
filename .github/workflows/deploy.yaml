@@ -1,0 +1,55 @@
+name: deploy
+on: [push, pull_request]
+jobs:
+  CI-CD:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Cache Dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Setup Node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Build
+        run: |
+          yarn install --frozen-lockfile
+          npm run vercel-build
+
+      - name: Run Unit Tests
+        run: npm run test
+
+      - name: Deploy to Staging
+        id: deploy-vercel-staging
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Run e2e Tests
+        env:
+          VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_BASE_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
+        run: npm run cypress:run:record
+
+      - name: Deploy to Production
+        uses: amondnet/vercel-action@v20
+        id: deploy-vercel-production
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          scope: ${{ secrets.VERCEL_ORG_ID }}

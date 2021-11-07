@@ -3,6 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "npx prisma generate && next build",
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
@@ -11,6 +12,7 @@
     "test-all": "yarn lint && yarn type-check && yarn test",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
+    "cypress:run:record": "cypress run --record",
     "prepare": "husky install"
   },
   "husky": {

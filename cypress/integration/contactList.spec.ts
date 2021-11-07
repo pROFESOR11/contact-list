@@ -5,7 +5,7 @@ import { EDITED_CONTACT, EXISTING_CONTACTS, NEW_CONTACT } from '../../mocks/mock
 
 describe('NextJS Contact List Test Kit', () => {
   beforeEach(() => {
-    cy.visit(process.env.CYPRESS_BASE_URL || 'http://localhost:3000')
+    cy.visit('/')
   })
 
   it('should be able to add contact', () => {

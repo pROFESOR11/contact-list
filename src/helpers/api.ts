@@ -7,6 +7,13 @@ import { uploadImage } from './image'
 
 import { Tag } from '.prisma/client'
 
+export function getApiRoute(): string {
+  return (
+    (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000') +
+    `/api`
+  )
+}
+
 export const createTag = async ({ label }: { label: string }): Promise<Tag | null> => {
   try {
     const response = await fetch('/api/tag', {

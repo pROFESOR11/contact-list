@@ -4,6 +4,7 @@ import React from 'react'
 import Contacts from '@components/Contacts'
 import Layout from '@components/Layout'
 import { ContactWithTags } from '@customTypes/ContactWithTags'
+import { getApiRoute } from '@helpers/api'
 import useContacts from '@hooks/useContacts'
 
 interface HomeProps {
@@ -27,9 +28,19 @@ export const Home: React.FC<HomeProps> = ({ contacts: initialContacts }) => {
 export default Home
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const contacts = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/contacts`).then((res) => res.json())
+  try {
+    const contacts = await fetch(`${getApiRoute()}/contacts`).then((res) => res.json())
 
-  return {
-    props: { contacts },
+    return {
+      props: {
+        contacts,
+      },
+    }
+  } catch {
+    return {
+      props: {
+        contacts: [],
+      },
+    }
   }
 }
