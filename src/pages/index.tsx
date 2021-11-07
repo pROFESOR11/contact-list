@@ -4,6 +4,7 @@ import React from 'react'
 import Contacts from '@components/Contacts'
 import Layout from '@components/Layout'
 import { ContactWithTags } from '@customTypes/ContactWithTags'
+import { getApiRoute } from '@helpers/api'
 import useContacts from '@hooks/useContacts'
 
 interface HomeProps {
@@ -28,10 +29,7 @@ export default Home
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const contacts = await fetch(
-      (process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : 'http://localhost:3000') +
-        `/api/contacts`
-    ).then((res) => res.json())
+    const contacts = await fetch(`${getApiRoute()}/contacts`).then((res) => res.json())
 
     return {
       props: {
