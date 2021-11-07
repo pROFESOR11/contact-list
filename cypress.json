@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:3000",
   "projectId": "s4co7d",
-  "pluginsFile": false
+  "pluginsFile": false,
+  "pageLoadTimeout": 15000
 }
