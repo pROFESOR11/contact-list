@@ -35,10 +35,11 @@ interface DropdownMenuItem {
 }
 
 type DropdownMenuProps = {
+  contactId: number
   actions: DropdownMenuItem[]
 }
 
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ actions }) => {
+const DropdownMenu: React.FC<DropdownMenuProps> = ({ actions, contactId }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -56,19 +57,24 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ actions }) => {
   }
 
   return (
-    <div>
+    <>
       <IconButton
         aria-label="contact-actions"
         aria-controls="dropdown-menu"
         aria-haspopup="true"
         size="small"
+        data-testid="contact-actions-dropdown-menu"
         onClick={handleClick}
       >
         <MoreHorizIcon fontSize="inherit" color="primary" />
       </IconButton>
       <StyledMenu id="dropdown-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         {actions.map(({ action, label, icon: Icon }) => (
-          <MenuItem key={label} onClick={() => handleAction(action)}>
+          <MenuItem
+            data-testid={`contact-${contactId}-action-${label}`}
+            key={label}
+            onClick={() => handleAction(action)}
+          >
             <ListItemIcon>
               <Icon color="primary" />
             </ListItemIcon>
@@ -76,7 +82,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ actions }) => {
           </MenuItem>
         ))}
       </StyledMenu>
-    </div>
+    </>
   )
 }
 

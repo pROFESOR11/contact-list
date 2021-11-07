@@ -116,7 +116,13 @@ const Contacts: React.FC<ContactsProps> = ({ contacts, methods }) => {
         <Box mr="1rem">
           <SearchBar placeholder="Search" onChange={handleSearchFilterChange} onClear={handleSearchClear} />
         </Box>
-        <Button variant="contained" color="primary" startIcon={<PersonAddIcon />} onClick={activateCreateMode}>
+        <Button
+          data-testid="add-contact"
+          variant="contained"
+          color="primary"
+          startIcon={<PersonAddIcon />}
+          onClick={activateCreateMode}
+        >
           {!downMd && 'Add Contact'}
         </Button>
       </Box>
