@@ -230,5 +230,5 @@ Project Link: [https://github.com/pROFESOR11/contact-list](https://github.com/pR
 [issues-shield]: https://img.shields.io/github/issues/pROFESOR11/contact-list.svg?style=for-the-badge
 [issues-url]: https://github.com/pROFESOR11/contact-list/issues
 [license-shield]: https://img.shields.io/github/license/pROFESOR11/contact-list.svg?style=for-the-badge
-[license-url]: https://github.com/pROFESOR11/contact-list/blob/master/LICENSE.txt
+[license-url]: https://github.com/pROFESOR11/contact-list/blob/main/LICENSE
 [product-screenshot]: /contact-list.png
