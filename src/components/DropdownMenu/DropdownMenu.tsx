@@ -60,7 +60,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ actions, contactId }) => {
     <>
       <IconButton
         aria-label="contact-actions"
-        aria-controls="dropdown-menu"
+        aria-controls={`${contactId}-dropdown-menu}`}
         aria-haspopup="true"
         size="small"
         data-testid="contact-actions-dropdown-menu"
@@ -68,7 +68,13 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ actions, contactId }) => {
       >
         <MoreHorizIcon fontSize="inherit" color="primary" />
       </IconButton>
-      <StyledMenu id="dropdown-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+      <StyledMenu
+        id={`${contactId}-dropdown-menu}`}
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
         {actions.map(({ action, label, icon: Icon }) => (
           <MenuItem
             data-testid={`contact-${contactId}-action-${label}`}

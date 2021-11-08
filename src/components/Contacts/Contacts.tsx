@@ -110,7 +110,7 @@ const Contacts: React.FC<ContactsProps> = ({ contacts, methods }) => {
         <Box className={classes.headerLeftContainer}>
           <Typography variant="h4">Contacts</Typography>
           <Box ml="1rem">
-            <Typography variant="subtitle1">{contacts.length} Total</Typography>
+            <Typography variant="body1">{contacts.length} Total</Typography>
           </Box>
         </Box>
         <Box mr="1rem">
