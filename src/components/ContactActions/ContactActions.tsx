@@ -42,7 +42,7 @@ const ActionButton: React.FC<IActionButton> = ({ type, value }) => {
 
   return (
     <a target="_blank" href={aHref} rel="noreferrer">
-      <IconButton>
+      <IconButton aria-label={type}>
         <Icon fontSize="inherit" color="primary" />
       </IconButton>
     </a>
