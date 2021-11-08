@@ -5,6 +5,7 @@ import EditIcon from '@material-ui/icons/Edit'
 import { useConfirm } from 'material-ui-confirm'
 import React, { useCallback } from 'react'
 
+import ContactActions from '@components/ContactActions'
 import ContactTags from '@components/ContactTags'
 import DropdownMenu from '@components/DropdownMenu'
 import { ContactWithTags } from '@customTypes/ContactWithTags'
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'space-between',
     height: '100%',
     boxShadow: '0px 3px 6px #5D5D5D29',
     borderRadius: '15px',
@@ -70,41 +72,46 @@ const Contact: React.FC<ContactProps> = ({ contact, activateEditMode, deleteCont
   )
   return (
     <Paper className={classes.paper} data-testid={`contact-${contact.id}`}>
-      <Box className={classes.cardHeader}>
-        <Box display="flex" flexDirection="row" alignItems="center">
-          <Avatar
-            data-testid={`avatar-${contact.id}`}
-            className={classes.avatar}
-            src={avatar}
-            alt={getFullName({ name, lastName })}
-          >
-            {getFirstLettersOfFullName({ name, lastName })}
-          </Avatar>
-          <Box className={classes.cardHeaderRightContainer}>
-            <Typography variant="body1">{getFullName({ name, lastName })}</Typography>
-            <Typography variant="caption">{email || phoneNumber || ' '}</Typography>
+      <>
+        <Box className={classes.cardHeader}>
+          <Box display="flex" flexDirection="row" alignItems="center">
+            <Avatar
+              data-testid={`avatar-${contact.id}`}
+              className={classes.avatar}
+              src={avatar}
+              alt={getFullName({ name, lastName })}
+            >
+              {getFirstLettersOfFullName({ name, lastName })}
+            </Avatar>
+            <Box className={classes.cardHeaderRightContainer}>
+              <Typography variant="body1">{getFullName({ name, lastName })}</Typography>
+              <Typography variant="caption">{email || phoneNumber || ' '}</Typography>
+            </Box>
+          </Box>
+          <Box alignSelf="flex-start">
+            <DropdownMenu
+              contactId={contact.id}
+              actions={[
+                {
+                  icon: EditIcon,
+                  label: 'Edit',
+                  action: () => activateEditMode(contact),
+                },
+                {
+                  icon: DeleteForeverIcon,
+                  label: 'Delete',
+                  action: () => handleDeleteContact(contact),
+                },
+              ]}
+            />
           </Box>
         </Box>
-        <Box alignSelf="flex-start">
-          <DropdownMenu
-            contactId={contact.id}
-            actions={[
-              {
-                icon: EditIcon,
-                label: 'Edit',
-                action: () => activateEditMode(contact),
-              },
-              {
-                icon: DeleteForeverIcon,
-                label: 'Delete',
-                action: () => handleDeleteContact(contact),
-              },
-            ]}
-          />
+        <Box className={classes.footer}>
+          <ContactTags tags={tags} />
         </Box>
-      </Box>
-      <Box className={classes.footer}>
-        <ContactTags tags={tags} />
+      </>
+      <Box>
+        <ContactActions contact={contact} />
       </Box>
     </Paper>
   )
