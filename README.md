@@ -22,8 +22,6 @@
 </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -50,13 +48,11 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://contact-list-five.vercel.app/)
-
 
 ### Built With
 
@@ -75,20 +71,19 @@
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ## Getting Started
 
 ### Prerequisites
 
-* [Node.js 12.22.0](https://nodejs.org/) or later
+- [Node.js 12.22.0](https://nodejs.org/) or later
 
-* npm
+- npm
+
   ```sh
   npm install npm@latest -g
   ```
 
-* using yarn is strongly advised:
+- using yarn is strongly advised:
   ```sh
   npm install --global yarn
   ```
@@ -99,8 +94,8 @@
    ```sh
    git clone https://github.com/pROFESOR11/contact-list.git [your-project-name]
    ```
-   
 2. Install dependencies with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/):
+
    ```sh
    cd [your-project-name]
 
@@ -108,21 +103,23 @@
    # or
    yarn
    ```
-   
+
 3. For database you have two options for local development:
 
-  - Using Postgres
-  
-  Copy `.env.example` as `.env` and set `DATABASE_URL`:
-  ```sh
+- Using Postgres
+
+Copy `.env.example` as `.env` and set `DATABASE_URL`:
+
+```sh
 DATABASE_URL=postgresql://__USER__:__PASSWORD__@__HOST__/__DATABASE__
 ```
 
-  - Using SQLite
-  
-  Open [`src/prisma/schema.prisma`](./src/prisma/schema.prisma):
-  ```diff
-  datasource db {
+- Using SQLite
+
+Open [`src/prisma/schema.prisma`](./src/prisma/schema.prisma):
+
+```diff
+datasource db {
 -    provider = "postgresql"
 -    url      = env("DATABASE_URL")
 +   provider = "sqlite"
@@ -160,6 +157,7 @@ This application helps user to manage his/her contacts with the following functi
 - Delete Contact
 
 A contact may have the following attributes:
+
 - Name
 - Last Name
 - Telephone number
@@ -181,6 +179,7 @@ See the [open issues](https://github.com/pROFESOR11/contact-list/issues) for a f
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -196,9 +195,8 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.md` for more information.
@@ -215,9 +213,9 @@ Project Link: [https://github.com/pROFESOR11/contact-list](https://github.com/pR
 
 ## Acknowledgments
 
-* [Why superjson?](https://github.com/vercel/next.js/issues/13209)
-* [Why using PostgreSQL for Vercel deployments?](https://github.com/vercel/vercel/discussions/4556)
-* [ElephantSQL for super-easy access to a PostgreSQL database](https://www.elephantsql.com/)
+- [Why superjson?](https://github.com/vercel/next.js/issues/13209)
+- [Why using PostgreSQL for Vercel deployments?](https://github.com/vercel/vercel/discussions/4556)
+- [ElephantSQL for super-easy access to a PostgreSQL database](https://www.elephantsql.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
